@@ -26,11 +26,18 @@ export const receiveBag = (bag) => {
 }
 
 export function addPackageAction(bag) { 
+  console.log(bag);
+  let obj = {
+    bag: bag
+  }
   return (dispatch) => {
     dispatch(requestBag(bag))
     return request
-    .get('/add')
-    .then(res => {(receiveBag(res.body))
+    .get('/add', obj)
+    .then(res => {
+      console.log(res.body.package);
+      
+      dispatch(receiveBag(res.body.package))
   })
     .catch(err => {
       dispatch(showError(err.message))

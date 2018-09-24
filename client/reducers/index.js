@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux'
 
-import words from './words'
+import packages from './packages'
 
 export default combineReducers({
-  words
+  packages
 })
